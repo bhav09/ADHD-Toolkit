@@ -49,6 +49,10 @@ def download():
     details = driver.find_elements_by_class_name('info-section')
     for detail in details:
         print(detail.text)
+        with open('Doctors List.txt','a+',encoding="utf-8") as f:
+            f.write(detail.text)
+            f.write('\n----------------------------------------\n')
+            f.close()
         print('----------------------------------------')
     driver.quit()
     doc.destroy()
